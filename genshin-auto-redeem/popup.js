@@ -1,4 +1,4 @@
-import { loadAll, formatTime } from "./storage.js";
+import { loadAll, formatTime, formatShortTime } from "./storage.js";
 import { STATUS } from "./redeem.js";
 import { SOURCES } from "./sources.js";
 import { GAMES, GAME_IDS, regionFromUid, regionName } from "./games.js";
@@ -62,7 +62,7 @@ function renderResults(codes) {
         el("td", { className: "game" }, GAMES[game].short),
         el("td", { className: "code mono" }, code),
         el("td", {}, resultBadge(game, code, entry.status)),
-        el("td", { className: "time" }, formatTime(entry.triedAt)),
+        el("td", { className: "time", title: formatTime(entry.triedAt) }, formatShortTime(entry.triedAt)),
       );
       row.title = entryMessage(entry);
       return row;

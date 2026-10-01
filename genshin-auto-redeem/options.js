@@ -106,11 +106,10 @@ async function renderState() {
       el("td", { className: "mono" }, code),
       el("td", {}, statusBadge(entry.status)),
       el("td", {}, entryMessage(entry)),
-      el("td", { className: "muted" }, String(entry.attempts ?? 0)),
       el("td", { className: "time" }, formatTime(entry.triedAt)),
     ),
   );
-  $("codes").replaceChildren(...(codeRows.length ? codeRows : [el("tr", {}, el("td", { colSpan: 6, className: "empty" }, "기록 없음"))]));
+  $("codes").replaceChildren(...(codeRows.length ? codeRows : [el("tr", {}, el("td", { colSpan: 5, className: "empty" }, "기록 없음"))]));
 
   const logRows = [...(meta.log ?? [])].reverse().map((line) =>
     el("tr", {}, el("td", { className: "time" }, formatTime(line.at)), el("td", { className: `level-${line.level}` }, line.msg)),

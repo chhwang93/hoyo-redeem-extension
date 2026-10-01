@@ -73,3 +73,11 @@ test("저장소 왕복: 1.0 데이터를 새 형식으로 저장하고, 게임 �
     delete globalThis.chrome;
   }
 });
+
+test("formatShortTime: 오늘이면 시:분, 다른 날이면 월/일", async () => {
+  const { formatShortTime } = await import("../genshin-auto-redeem/storage.js");
+  const now = new Date(2026, 9, 2, 13, 0);
+  assert.equal(formatShortTime(new Date(2026, 9, 2, 0, 49).toISOString(), now), "00:49");
+  assert.equal(formatShortTime(new Date(2026, 9, 1, 20, 3).toISOString(), now), "10/1");
+  assert.equal(formatShortTime(null, now), "-");
+});

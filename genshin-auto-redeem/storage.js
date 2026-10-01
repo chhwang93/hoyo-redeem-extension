@@ -84,6 +84,16 @@ export async function saveAll({ settings, codes, meta }) {
   await chrome.storage.local.set(patch);
 }
 
+/** 좁은 표에 쓰는 짧은 시각. 오늘이면 "14:05", 다른 날이면 "10/1". */
+export function formatShortTime(iso, now = new Date()) {
+  if (!iso) return "-";
+  const date = new Date(iso);
+  if (Number.isNaN(date.getTime())) return "-";
+  if (date.toDateString() !== now.toDateString()) return `${date.getMonth() + 1}/${date.getDate()}`;
+  const pad = (n) => String(n).padStart(2, "0");
+  return `${pad(date.getHours())}:${pad(date.getMinutes())}`;
+}
+
 export function formatTime(iso) {
   if (!iso) return "-";
   const date = new Date(iso);
