@@ -1,0 +1,11 @@
+{
+  "name": "genshin-auto-redeem-dev",
+  "private": true,
+  "type": "module",
+  "description": "개발용: 확장 프로그램(genshin-auto-redeem/) 단위 테스트와 실데이터 점검 스크립트",
+  "scripts": {
+    "test": "node --test \"tests/*.test.js\"",
+    "check:sources": "node scripts/live-sources.js",
+    "icons": "node scripts/make-icons.js"
+  }
+}

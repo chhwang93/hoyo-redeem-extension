@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <title>HoYo 코드 자동 수령</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { width: 380px; padding: 12px; }
+    header { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    header img { width: 22px; height: 22px; }
+    header h1 { flex: 1; }
+    .stack > * + * { margin-top: 10px; }
+    .login { display: flex; align-items: center; gap: 6px; font-weight: 600; }
+    .login button { margin-left: auto; }
+    .accounts { list-style: none; margin: 8px 0 0; padding: 0; }
+    .accounts li { display: flex; gap: 8px; padding: 2px 0; }
+    .accounts .game { width: 56px; flex-shrink: 0; color: var(--muted); }
+    .times { display: flex; justify-content: space-between; }
+    #run { width: 100%; padding: 9px; font-size: 14px; }
+    #summary:empty, #warning:empty { display: none; }
+    #warning { color: var(--warn); }
+    .results { max-height: 260px; overflow-y: auto; padding: 4px 8px; }
+    .results td.game { color: var(--muted); white-space: nowrap; }
+    .results td.code { word-break: break-all; }
+    .results td.time { color: var(--muted); font-size: 11px; text-align: right; white-space: nowrap; }
+    .results button.badge { border: none; cursor: pointer; font: inherit; font-size: 11px; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="icons/icon32.png" alt="">
+    <h1>HoYo 코드 자동 수령</h1>
+    <button id="open-options" class="link">설정</button>
+  </header>
+
+  <div class="stack">
+    <section class="card">
+      <div class="login">
+        <span class="dot"></span><span id="login-text">로그인 확인 전</span>
+        <button id="login" class="link" hidden>로그인하기</button>
+      </div>
+      <ul id="accounts" class="accounts small"></ul>
+    </section>
+
+    <div class="times small muted">
+      <span>마지막 확인 <b id="last-check">-</b></span>
+      <span>다음 확인 <b id="next-check">-</b></span>
+    </div>
+
+    <button id="run" class="primary">지금 확인</button>
+
+    <div>
+      <p id="summary" class="small muted"></p>
+      <p id="warning" class="small"></p>
+    </div>
+
+    <section class="card results">
+      <table>
+        <thead><tr><th>게임</th><th>코드</th><th>상태</th><th style="text-align:right">시각</th></tr></thead>
+        <tbody id="results"></tbody>
+      </table>
+    </section>
+  </div>
+
+  <script type="module" src="popup.js"></script>
+</body>
+</html>

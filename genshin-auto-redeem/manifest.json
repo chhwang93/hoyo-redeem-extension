@@ -1,0 +1,43 @@
+{
+  "manifest_version": 3,
+  "name": "HoYo 코드 자동 수령",
+  "version": "1.1.0",
+  "description": "원신, 붕괴: 스타레일, 젠레스 존 제로의 새 리딤코드를 로그인된 HoYoverse 계정으로 대신 입력합니다.",
+  "minimum_chrome_version": "116",
+  "permissions": ["alarms", "storage", "notifications", "scripting"],
+  "host_permissions": [
+    "https://hoyo-codes.seria.moe/*",
+    "https://genshin-impact.fandom.com/*",
+    "https://honkai-star-rail.fandom.com/*",
+    "https://zenless-zone-zero.fandom.com/*",
+    "https://public-operation-hk4e.hoyoverse.com/*",
+    "https://public-operation-hkrpg.hoyoverse.com/*",
+    "https://public-operation-nap.hoyoverse.com/*",
+    "https://api-account-os.hoyoverse.com/*",
+    "https://genshin.hoyoverse.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_title": "HoYo 코드 자동 수령",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}

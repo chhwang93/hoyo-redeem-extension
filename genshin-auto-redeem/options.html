@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HoYo 코드 자동 수령 설정</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { padding: 24px 16px 48px; }
+    main { max-width: 760px; margin: 0 auto; }
+    header { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+    header img { width: 32px; height: 32px; }
+    header h1 { font-size: 18px; flex: 1; }
+    #saved { font-size: 12px; color: var(--ok); opacity: 0; transition: opacity .2s; }
+    #saved.show { opacity: 1; }
+    section.card { margin-bottom: 14px; padding: 16px; }
+    .row { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; margin-bottom: 10px; }
+    .row:last-child { margin-bottom: 0; }
+    .row > .label { width: 80px; color: var(--muted); }
+    .hint { margin: 8px 0 0; }
+    .accounts input { width: 130px; }
+    .accounts td.state { color: var(--muted); font-size: 12px; }
+    .accounts tr.off { opacity: .45; }
+    #interval { width: 80px; }
+    #code { width: 190px; text-transform: uppercase; }
+    .result { margin-top: 10px; }
+    .result:empty { display: none; }
+    .scroll { max-height: 320px; overflow-y: auto; }
+    .scroll td { font-size: 12px; }
+    td.time { white-space: nowrap; color: var(--muted); }
+    .level-warn { color: var(--warn); }
+    .level-error { color: var(--bad); }
+    .head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .head h2 { margin: 0; }
+  </style>
+</head>
+<body>
+<main>
+  <header>
+    <img src="icons/icon48.png" alt="">
+    <h1>HoYo 코드 자동 수령</h1>
+    <span id="saved">저장됨</span>
+  </header>
+
+  <section class="card">
+    <h2>게임</h2>
+    <div id="games" class="row"></div>
+  </section>
+
+  <section class="card">
+    <div class="head">
+      <h2>계정</h2>
+      <button id="detect">계정 다시 찾기</button>
+    </div>
+    <table class="accounts">
+      <thead><tr><th>게임</th><th>UID</th><th>서버</th><th></th></tr></thead>
+      <tbody id="accounts"></tbody>
+    </table>
+    <p class="hint small muted">UID를 비워 두면 다음 확인 때 로그인된 계정에서 찾아요.</p>
+    <div id="detect-result" class="result small"></div>
+  </section>
+
+  <section class="card">
+    <h2>확인</h2>
+    <div class="row">
+      <label class="label" for="interval">주기</label>
+      <span><input id="interval" type="number" min="10" max="1440" step="5"> 분마다</span>
+    </div>
+    <div class="row">
+      <label class="label" for="lang">응답 언어</label>
+      <select id="lang">
+        <option value="ko">한국어</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="zh-tw">繁體中文</option>
+      </select>
+    </div>
+    <div class="row">
+      <span class="label">코드 출처</span>
+      <label><input type="checkbox" id="src-hoyoCodes"> hoyo-codes</label>
+      <label><input type="checkbox" id="src-fandom"> Fandom 위키</label>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>요청 방식</h2>
+    <div class="row">
+      <select id="transport" aria-label="요청 방식">
+        <option value="auto">자동</option>
+        <option value="fetch">바로 요청만</option>
+        <option value="tab">교환 페이지 경유만</option>
+      </select>
+      <button id="test-connection">연결 확인</button>
+      <span class="small muted">지금: <b id="transport-current">-</b></span>
+    </div>
+    <p class="hint small muted">자동이면 바로 요청해 보고, 로그인이 안 잡히면 교환 페이지를 잠깐 열어서 요청해요.</p>
+    <div id="connection-result" class="result"></div>
+  </section>
+
+  <section class="card">
+    <h2>코드 직접 입력</h2>
+    <div class="row">
+      <select id="code-game" aria-label="게임"></select>
+      <input id="code" type="text" placeholder="코드" autocomplete="off" spellcheck="false">
+      <button id="try-code">입력</button>
+    </div>
+    <p class="hint small muted">목록에 아직 안 올라온 코드를 바로 넣을 때 써요. 넣으면 실제로 받아요.</p>
+    <div id="code-result" class="result"></div>
+  </section>
+
+  <section class="card">
+    <div class="head">
+      <h2>기록</h2>
+      <button id="reset" class="danger">기록 지우기</button>
+    </div>
+    <div class="scroll">
+      <table>
+        <thead><tr><th>게임</th><th>코드</th><th>상태</th><th>메시지</th><th>시도</th><th>시각</th></tr></thead>
+        <tbody id="codes"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>로그</h2>
+    <div class="scroll">
+      <table><tbody id="log"></tbody></table>
+    </div>
+  </section>
+</main>
+<script type="module" src="options.js"></script>
+</body>
+</html>
