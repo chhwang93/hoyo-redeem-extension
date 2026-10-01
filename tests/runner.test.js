@@ -10,11 +10,11 @@ import {
   LOGIN_RECHECK_MS,
   NO_ROLE_RECHECK_MS,
   VERIFY_BACKOFF_MS,
-} from "../genshin-auto-redeem/runner.js";
-import { ROLES_URL, MIN_GAP_MS } from "../genshin-auto-redeem/redeem.js";
-import { GAMES, GAME_IDS } from "../genshin-auto-redeem/games.js";
-import { hoyoCodesUrl, wikiUrl } from "../genshin-auto-redeem/sources.js";
-import { normalizeSettings, normalizeCodes, normalizeMeta } from "../genshin-auto-redeem/storage.js";
+} from "../hoyo-auto-redeem/runner.js";
+import { ROLES_URL, MIN_GAP_MS } from "../hoyo-auto-redeem/redeem.js";
+import { GAMES, GAME_IDS } from "../hoyo-auto-redeem/games.js";
+import { hoyoCodesUrl, wikiUrl } from "../hoyo-auto-redeem/sources.js";
+import { normalizeSettings, normalizeCodes, normalizeMeta } from "../hoyo-auto-redeem/storage.js";
 
 const T0 = Date.parse("2026-10-01T12:00:00Z");
 const HALF_HOUR = 30 * 60 * 1000;

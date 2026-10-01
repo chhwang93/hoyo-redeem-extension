@@ -1,6 +1,6 @@
 // 실제 출처에서 코드를 받아 확장과 같은 파서로 읽어 본다. 사이트 구조가 바뀌었는지 볼 때: npm run check:sources
-import { collectCodes, SOURCES } from "../genshin-auto-redeem/sources.js";
-import { GAMES, GAME_IDS } from "../genshin-auto-redeem/games.js";
+import { collectCodes, SOURCES } from "../hoyo-auto-redeem/sources.js";
+import { GAMES, GAME_IDS } from "../hoyo-auto-redeem/games.js";
 
 let failed = false;
 for (const gameId of GAME_IDS) {

@@ -10,8 +10,8 @@ import {
   pickRole,
   parseRawResponse,
   createFetchTransport,
-} from "../genshin-auto-redeem/redeem.js";
-import { GAMES, regionFromUid, serverOf, giftPageUrl } from "../genshin-auto-redeem/games.js";
+} from "../hoyo-auto-redeem/redeem.js";
+import { GAMES, regionFromUid, serverOf, giftPageUrl } from "../hoyo-auto-redeem/games.js";
 
 const account = { uid: "812345678", region: "os_asia", lang: "ko", cdkey: "GENSHINGIFT", deviceId: "dev-1", now: 1790000000000 };
 

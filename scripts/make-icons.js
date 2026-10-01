@@ -109,7 +109,7 @@ for (const size of SIZES) {
       rgba[i + 3] = Math.round((alpha / (SS * SS)) * 255);
     }
   }
-  const out = new URL(`../genshin-auto-redeem/icons/icon${size}.png`, import.meta.url);
+  const out = new URL(`../hoyo-auto-redeem/icons/icon${size}.png`, import.meta.url);
   writeFileSync(out, encodePng(size, rgba));
   console.log(`icons/icon${size}.png`);
 }

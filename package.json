@@ -2,7 +2,7 @@
   "name": "hoyo-redeem-extension",
   "private": true,
   "type": "module",
-  "description": "개발용: 확장 프로그램(genshin-auto-redeem/) 단위 테스트, 실데이터 점검, 아이콘 생성",
+  "description": "개발용: 확장 프로그램(hoyo-auto-redeem/) 단위 테스트, 실데이터 점검, 아이콘 생성",
   "license": "MIT",
   "repository": {
     "type": "git",

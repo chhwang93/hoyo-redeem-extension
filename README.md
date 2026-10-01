@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="genshin-auto-redeem/icons/icon128.png" width="96" alt="">
+<img src="hoyo-auto-redeem/icons/icon128.png" width="96" alt="">
 
 # HoYo 코드 자동 수령
 
@@ -15,7 +15,7 @@
 ![붕괴: 스타레일](https://img.shields.io/badge/%EB%B6%95%EA%B4%B4%3A%20%EC%8A%A4%ED%83%80%EB%A0%88%EC%9D%BC-7b6cf0)
 ![젠레스 존 제로](https://img.shields.io/badge/%EC%A0%A0%EB%A0%88%EC%8A%A4%20%EC%A1%B4%20%EC%A0%9C%EB%A1%9C-8db51c)
 
-**[최신 버전 받기](https://github.com/chhwang93/hoyo-redeem-extension/releases/latest)** · [설치 방법](#설치) · [자세한 설명](genshin-auto-redeem/README.md)
+**[최신 버전 받기](https://github.com/chhwang93/hoyo-redeem-extension/releases/latest)** · [설치 방법](#설치) · [자세한 설명](hoyo-auto-redeem/README.md)
 
 </div>
 
@@ -80,13 +80,13 @@ flowchart LR
   E -- 로그인 풀림 --> H["알림, 다시 로그인"]
 ```
 
-요청 사이는 5.5초 이상 띄우고, 로그인이 풀렸거나 요청이 막히면 그 자리에서 멈췄다가 다음 확인 때 다시 합니다. 요청 형식과 응답 처리는 [자세한 설명](genshin-auto-redeem/README.md)에 있습니다.
+요청 사이는 5.5초 이상 띄우고, 로그인이 풀렸거나 요청이 막히면 그 자리에서 멈췄다가 다음 확인 때 다시 합니다. 요청 형식과 응답 처리는 [자세한 설명](hoyo-auto-redeem/README.md)에 있습니다.
 
 ## 설치
 
 1. [최신 버전](https://github.com/chhwang93/hoyo-redeem-extension/releases/latest)에서 `hoyo-redeem-extension-버전.zip`을 받아 압축을 풉니다.
 2. 크롬 주소창에 `chrome://extensions`를 입력하고, 오른쪽 위 **개발자 모드**를 켭니다.
-3. **압축해제된 확장 프로그램 로드**를 누르고 풀린 `genshin-auto-redeem` 폴더를 고릅니다.
+3. **압축해제된 확장 프로그램 로드**를 누르고 풀린 `hoyo-auto-redeem` 폴더를 고릅니다.
 4. [원신 교환 페이지](https://genshin.hoyoverse.com/ko/gift)에서 HoYoverse 계정으로 로그인합니다.
 5. 툴바의 아이콘을 눌러 **지금 확인**을 누릅니다. 처음에는 지금 올라와 있는 코드를 모두 시도해서 몇 분 걸립니다.
 
@@ -95,6 +95,9 @@ flowchart LR
 ### 업데이트
 
 새 버전 zip을 받아 **같은 폴더에 덮어쓴** 뒤 `chrome://extensions`에서 이 확장의 새로고침(↻)을 누릅니다. 기록과 설정은 그대로 남습니다.
+
+> [!NOTE]
+> 1.1.0까지는 폴더 이름이 `genshin-auto-redeem`이었습니다. 새 zip의 `hoyo-auto-redeem` 폴더를 따로 로드하지 말고, 그 안의 파일을 쓰던 `genshin-auto-redeem` 폴더에 덮어쓰세요. 폴더 이름은 그대로 둬도 됩니다. 새 폴더를 로드하면 다른 확장으로 인식해서 기록과 설정이 처음부터 시작합니다.
 
 ## 자주 묻는 질문
 
@@ -128,12 +131,6 @@ HoYoverse 로그인이 풀린 상태입니다. 알림을 눌러 교환 페이지
 자동으로 찾을 때는 서버마다 공식 교환 페이지처럼 첫 번째 캐릭터를 씁니다. 다른 캐릭터로 받으려면 설정의 계정 칸에 UID를 직접 입력하세요.
 </details>
 
-<details>
-<summary>폴더 이름이 왜 genshin-auto-redeem인가요?</summary>
-
-원신만 지원하던 1.0 때 이름입니다. 폴더 이름을 바꾸면 크롬이 다른 확장으로 인식해서 기존 기록이 사라지기 때문에 그대로 두었습니다.
-</details>
-
 ## 개발
 
 Node 22만 있으면 따로 설치할 패키지 없이 돌아갑니다.
@@ -150,7 +147,7 @@ npm run check:sources
 npm run icons
 ```
 
-차례로 단위 테스트, 실제 코드 출처가 아직 파싱되는지 확인, 아이콘 다시 만들기입니다. 코드 구조는 [자세한 설명의 파일 목록](genshin-auto-redeem/README.md#파일)을 보세요.
+차례로 단위 테스트, 실제 코드 출처가 아직 파싱되는지 확인, 아이콘 다시 만들기입니다. 코드 구조는 [자세한 설명의 파일 목록](hoyo-auto-redeem/README.md#파일)을 보세요.
 
 ## 라이선스
 

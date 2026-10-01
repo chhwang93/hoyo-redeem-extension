@@ -12,7 +12,7 @@ import {
   collectCodes,
   hoyoCodesUrl,
   wikiUrl,
-} from "../genshin-auto-redeem/sources.js";
+} from "../hoyo-auto-redeem/sources.js";
 
 // 2026-10-01에 받아 둔 실제 응답. 스타레일 위키는 표 앞쪽 12행만 남겼다.
 const fixture = (name) => JSON.parse(readFileSync(new URL(`./fixtures/${name}.json`, import.meta.url)));

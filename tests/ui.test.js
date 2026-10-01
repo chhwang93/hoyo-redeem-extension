@@ -1,6 +1,6 @@
 import { test, afterEach } from "node:test";
 import assert from "node:assert/strict";
-import { send } from "../genshin-auto-redeem/ui.js";
+import { send } from "../hoyo-auto-redeem/ui.js";
 
 afterEach(() => {
   delete globalThis.chrome;
@@ -30,7 +30,7 @@ test("send: 받는 쪽이 없어서 실패해도 예외 대신 error", async () 
 });
 
 test("entryMessage: 응답 코드 숫자는 알 수 없는 응답일 때만 보인다", async () => {
-  const { entryMessage } = await import("../genshin-auto-redeem/ui.js");
+  const { entryMessage } = await import("../hoyo-auto-redeem/ui.js");
   assert.equal(entryMessage({ status: "used", retcode: -2017, message: "이미 사용된 코드입니다" }), "이미 사용된 코드입니다");
   assert.equal(entryMessage({ status: "success", retcode: 0, message: "OK" }), "");
   assert.equal(entryMessage({ status: "unknown", retcode: -9999, message: "?" }), "? (응답 코드 -9999)");
